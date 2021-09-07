@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const Sidebar = ({ sideBarItems }) => {
   const [activeIndex, setActiveIndex] = useState(null);
-  const [visibleNow, setVisibleNow] = useState(true);
+  const [visibleNow, setVisibleNow] = useState(false);
 
   const onSideBarClick = (index) => {
     setActiveIndex(index);
