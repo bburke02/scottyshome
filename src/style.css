@@ -1,5 +1,6 @@
 @import "~leaflet/dist/leaflet.css";
 
-.map {
-  height: 800px;
+#mapid {
+  height: 100px;
+  width: auto;
 }

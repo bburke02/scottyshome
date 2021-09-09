@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Search from "./Search";
+
 import Header from "../Header";
 import Sidebar from "./Sidebar";
 import { Dropdown } from "./Dropdown";
@@ -9,10 +9,8 @@ import scottyProfile from "../img/scottyProfile.jpg";
 import daisyProfile from "../img/daisyProfile.jpg";
 import sammyProfile from "../img/sammyProfile.JPG";
 import rosieProfile from "../img/rosieProfile.jpg";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "../../src/style.css";
 
-// import "leaflet/dist/leaflet.css";
+import "../../src/style.css";
 
 const sideBarItems = [
   {
@@ -82,6 +80,10 @@ const dogs = [
       "My name is Sammy and I don't even know how old I am. I was rescued by my human mommies from a shelter. I love to eat. I howl when I want to have food. I get sad when my parents leave me, and get overcome with emotion when they come home. I don't like to play too much, but when I do I get a burst of energy for 10 seconds",
     profilePic: sammyProfile,
     age: 7,
+    coordinates: {
+      lat: 41.7004,
+      lng: -73.921,
+    },
   },
 ];
 
@@ -91,20 +93,37 @@ const App = () => {
   return (
     <div>
       <Header />
-      <div>
-        <Sidebar sideBarItems={sideBarItems} />
 
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <Dropdown
-            dogs={dogs}
-            selected={selected}
-            onSelectedChange={setSelected}
-          />
+      <div
+        style={{
+          display: "grid",
+          justifyContent: "left",
+          marginLeft: "21vw",
+        }}
+      >
+        <Dropdown
+          dogs={dogs}
+          selected={selected}
+          onSelectedChange={setSelected}
+        />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginLeft: "10px",
+        }}
+      >
+        <DropdownRender selectedDog={selected} dogs={dogs} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginLeft: "10px",
+          }}
+        >
+          <Location selectedDog={selected} id="mapid" />
         </div>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <DropdownRender selectedDog={selected} dogs={dogs} />
-        </div>
-        <Location selectedDog={selected} />
       </div>
     </div>
   );

@@ -13,12 +13,7 @@ const DropdownRender = ({ selectedDog }) => {
         </div>
         <div className="description">{selectedDog.aboutMe}</div>
       </div>
-      <div className="extra content">
-        <a>
-          <i className="user icon"></i>
-          22 Friends
-        </a>
-      </div>
+      <div className="extra content"></div>
     </div>
   );
 };
