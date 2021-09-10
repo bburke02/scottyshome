@@ -27,6 +27,7 @@ export const Dropdown = ({ dogs, selected, onSelectedChange }) => {
 
     return (
       <div
+        style={{ float: "center" }}
         key={dog.key}
         className="item"
         onClick={() => {
@@ -39,7 +40,7 @@ export const Dropdown = ({ dogs, selected, onSelectedChange }) => {
   });
 
   return (
-    <div ref={ref} className="ui form">
+    <div ref={ref} className="ui form" style={{ float: "center" }}>
       <div className="field">
         <label className="label">Select a Dog</label>
         <div

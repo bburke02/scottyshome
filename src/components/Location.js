@@ -49,7 +49,17 @@ const Location = ({ selectedDog }) => {
     }
   }, [selectedDog, lat, lng]);
 
-  return <div id="mapid" style={{ height: "50vh", width: "50vw" }}></div>;
+  return (
+    <div
+      id="mapid"
+      style={{
+        height: "50vh",
+        width: "50vw",
+        marginTop: "20px",
+        borderWidth: "thin medium thick",
+      }}
+    ></div>
+  );
 };
 
 export default Location;

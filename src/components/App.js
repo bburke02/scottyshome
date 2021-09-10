@@ -37,7 +37,7 @@ const dogs = [
     name: "Scotty",
     breed: "Havanese",
     aboutMe:
-      "My name is Scotty and I am three years old. I like to play with tennis balls, play tug, and wrestle with my friends. I have hip dysplasia, so sometimes it is uncomfortable when I run. Take a look at the map to see where I am originally from!",
+      "My name is Scotty and I am three years old. I like to play with tennis balls, play tug, and wrestle with my friends. I have hip dysplasia, so sometimes it is uncomfortable when I run. This app was created for me to help show on the map where me and all my friends came from. Take a look at the map to see where I am originally from!",
     profilePic: scottyProfile,
     age: 3,
     coordinates: {
@@ -91,14 +91,24 @@ const App = () => {
   const [selected, setSelected] = useState(dogs[0]);
 
   return (
-    <div>
+    <div
+      style={{
+        boxSizing: "border-box",
+        display: "grid",
+        margin: "0",
+        padding: "0",
+      }}
+    >
       <Header />
 
       <div
         style={{
-          display: "grid",
-          justifyContent: "left",
-          marginLeft: "21vw",
+          backgroundColor: "#d4e8fc",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          margin: "0",
+          padding: "0",
         }}
       >
         <Dropdown
@@ -106,22 +116,9 @@ const App = () => {
           selected={selected}
           onSelectedChange={setSelected}
         />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginLeft: "10px",
-        }}
-      >
+
         <DropdownRender selectedDog={selected} dogs={dogs} />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginLeft: "10px",
-          }}
-        >
+        <div>
           <Location selectedDog={selected} id="mapid" />
         </div>
       </div>
