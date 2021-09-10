@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Header from "../Header";
-import Sidebar from "./Sidebar";
+import AboutUs from "./AboutUs";
 import { Dropdown } from "./Dropdown";
 import DropdownRender from "./DropdownRender";
 import Location from "./Location";
@@ -89,6 +89,7 @@ const dogs = [
 
 const App = () => {
   const [selected, setSelected] = useState(dogs[0]);
+  const [aboutUs, setAboutUs] = useState("");
 
   return (
     <div
@@ -100,25 +101,34 @@ const App = () => {
       }}
     >
       <Header />
-
       <div
         style={{
-          backgroundColor: "#d4e8fc",
+          backgroundColor: "#3a3a3a",
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          margin: "0",
-          padding: "0",
+          justifyContent: "space-between",
+          flexDirection: "row",
+          alignItems: "right",
         }}
       >
-        <Dropdown
-          dogs={dogs}
-          selected={selected}
-          onSelectedChange={setSelected}
-        />
+        <AboutUs aboutUs={aboutUs} />
+        <div
+          style={{
+            backgroundColor: "#3a3a3a",
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "column",
+            alignItems: "center",
+            marginRight: "45vw",
+          }}
+        >
+          <Dropdown
+            dogs={dogs}
+            selected={selected}
+            onSelectedChange={setSelected}
+          />
 
-        <DropdownRender selectedDog={selected} dogs={dogs} />
-        <div>
+          <DropdownRender selectedDog={selected} dogs={dogs} />
+
           <Location selectedDog={selected} id="mapid" />
         </div>
       </div>

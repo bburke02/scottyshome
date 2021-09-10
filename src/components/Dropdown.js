@@ -27,7 +27,6 @@ export const Dropdown = ({ dogs, selected, onSelectedChange }) => {
 
     return (
       <div
-        style={{ float: "center" }}
         key={dog.key}
         className="item"
         onClick={() => {
@@ -40,15 +39,24 @@ export const Dropdown = ({ dogs, selected, onSelectedChange }) => {
   });
 
   return (
-    <div ref={ref} className="ui form" style={{ float: "center" }}>
+    <div ref={ref} className="ui form" style={{ textAlign: "center" }}>
       <div className="field">
-        <label className="label">Select a Dog</label>
+        <label className="label" style={{ color: "white" }}>
+          Select a Dog
+        </label>
         <div
+          style={{
+            backgroundColor: "#cfcdcc",
+            width: "10vw",
+            textAlign: "center",
+          }}
           onClick={() => setOpen(!open)}
           className={`ui selection dropdown ${open ? "visible active" : ""}`}
         >
           <i className="dropdown icon"></i>
-          <div className="text">{selected.name}</div>
+          <div className="text" style={{}}>
+            {selected.name}
+          </div>
           <div className={`menu ${open ? "visible transition" : ""}`}>
             {renderedDogList}
           </div>
