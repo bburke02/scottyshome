@@ -54,9 +54,7 @@ export const Dropdown = ({ dogs, selected, onSelectedChange }) => {
           className={`ui selection dropdown ${open ? "visible active" : ""}`}
         >
           <i className="dropdown icon"></i>
-          <div className="text" style={{}}>
-            {selected.name}
-          </div>
+          <div className="text">{selected.name}</div>
           <div className={`menu ${open ? "visible transition" : ""}`}>
             {renderedDogList}
           </div>

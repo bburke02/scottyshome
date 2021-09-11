@@ -95,7 +95,7 @@ const App = () => {
     <div
       style={{
         boxSizing: "border-box",
-        display: "grid",
+
         margin: "0",
         padding: "0",
       }}
@@ -104,21 +104,16 @@ const App = () => {
       <div
         style={{
           backgroundColor: "#3a3a3a",
-          display: "flex",
-          justifyContent: "space-between",
-          flexDirection: "row",
-          alignItems: "right",
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+          alignItems: "center",
+          justifyItems: "center",
         }}
       >
         <AboutUs aboutUs={aboutUs} />
         <div
           style={{
             backgroundColor: "#3a3a3a",
-            display: "flex",
-            justifyContent: "space-between",
-            flexDirection: "column",
-            alignItems: "center",
-            marginRight: "45vw",
           }}
         >
           <Dropdown
@@ -128,9 +123,8 @@ const App = () => {
           />
 
           <DropdownRender selectedDog={selected} dogs={dogs} />
-
-          <Location selectedDog={selected} id="mapid" />
         </div>
+        <Location selectedDog={selected} id="mapid" />
       </div>
     </div>
   );

@@ -55,7 +55,7 @@ const Location = ({ selectedDog }) => {
       style={{
         height: "70vh",
         width: "50vw",
-        marginTop: "20px",
+
         border: "3px solid #73AD21",
       }}
     ></div>

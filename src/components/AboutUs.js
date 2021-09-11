@@ -5,11 +5,6 @@ const AboutUs = ({ aboutUs, onAboutUs }) => {
   return (
     <div
       style={{
-        left: "30px",
-        width: "30vw",
-        marginTop: "10vh",
-        marginLeft: "10vw",
-        marginRight: "0",
         color: "white",
       }}
     >
