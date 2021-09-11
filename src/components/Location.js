@@ -54,8 +54,9 @@ const Location = ({ selectedDog }) => {
       id="mapid"
       style={{
         height: "70vh",
-        width: "50vw",
-
+        width: "800px",
+        alignSelf: "start",
+        gridColumn: "2/span 2",
         border: "3px solid #73AD21",
       }}
     ></div>

@@ -101,11 +101,13 @@ const App = () => {
       }}
     >
       <Header />
+
       <div
         style={{
           backgroundColor: "#3a3a3a",
           display: "grid",
           gridTemplateColumns: "1fr 1fr 1fr",
+          gridTemplateRows: "1fr 1fr",
           alignItems: "center",
           justifyItems: "center",
         }}
@@ -114,6 +116,7 @@ const App = () => {
         <div
           style={{
             backgroundColor: "#3a3a3a",
+            gridColumn: "2/span 2",
           }}
         >
           <Dropdown
