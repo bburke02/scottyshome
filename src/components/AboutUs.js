@@ -6,9 +6,12 @@ const AboutUs = ({ aboutUs, onAboutUs }) => {
     <div
       style={{
         color: "white",
+        marginLeft: "20px",
+        fontSize: "20px",
+        gridColumn: "1/span 1",
       }}
     >
-      <h4>{aboutUs}</h4>
+      <text>{aboutUs}</text>
     </div>
   );
 };

@@ -58,6 +58,12 @@ const Location = ({ selectedDog }) => {
         alignSelf: "start",
         gridColumn: "2/span 2",
         border: "3px solid #73AD21",
+        marginTop: "10px",
+        ridColumn: "2/span 2",
+        gridRow: "2/span 1",
+        justifySelf: "left",
+        alignSelf: "end",
+        marginBottom: "20px",
       }}
     ></div>
   );

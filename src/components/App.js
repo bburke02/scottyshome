@@ -9,6 +9,7 @@ import scottyProfile from "../img/scottyProfile.jpg";
 import daisyProfile from "../img/daisyProfile.jpg";
 import sammyProfile from "../img/sammyProfile.JPG";
 import rosieProfile from "../img/rosieProfile.jpg";
+import daisyWindow from "../img/daisyWindow.png";
 
 import "../../src/style.css";
 
@@ -113,10 +114,16 @@ const App = () => {
         }}
       >
         <AboutUs aboutUs={aboutUs} />
+        <div style={{}}>
+          <img src={daisyWindow} style={{ height: "500px", width: "auto" }} />
+        </div>
         <div
           style={{
             backgroundColor: "#3a3a3a",
-            gridColumn: "2/span 2",
+            gridColumn: "1/span 1",
+            gridRow: "2/span 1",
+            justifySelf: "right",
+            marginBottom: "20px",
           }}
         >
           <Dropdown
