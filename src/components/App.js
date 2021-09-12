@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Header from "../Header";
+import Search from "./Search";
 import AboutUs from "./AboutUs";
 import { Dropdown } from "./Dropdown";
 import DropdownRender from "./DropdownRender";
@@ -115,7 +116,10 @@ const App = () => {
       >
         <AboutUs aboutUs={aboutUs} />
         <div style={{}}>
-          <img src={daisyWindow} style={{ height: "500px", width: "auto" }} />
+          <img
+            src={daisyWindow}
+            style={{ height: "500px", gridColumn: "2 / span 2", width: "auto" }}
+          />
         </div>
         <div
           style={{
@@ -135,6 +139,7 @@ const App = () => {
           <DropdownRender selectedDog={selected} dogs={dogs} />
         </div>
         <Location selectedDog={selected} id="mapid" />
+        <Search selectedDog={selected} />
       </div>
     </div>
   );

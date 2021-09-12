@@ -1,39 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
-const Search = () => {
-  const [term, setTerm] = useState("havanese");
-  const [debouncedTerm, setDebouncedTerm] = useState(term);
+const Search = ({ selectedDog }) => {
+  const [term, setTerm] = useState("");
   const [results, setResults] = useState([]);
-
+  const ref = useRef();
+  console.log(ref.current);
   useEffect(() => {
-    const timeId = setTimeout(() => {
-      setDebouncedTerm(term);
-    }, 1000);
+    const source = axios.CancelToken.source();
 
-    return () => {
-      clearTimeout(timeId);
-    };
-  }, [term]);
-
-  useEffect(() => {
     const search = async () => {
-      const { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
+      console.log("useEffect", term);
+      let { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
         params: {
           action: "query",
           list: "search",
           origin: "*",
           format: "json",
-          srsearch: debouncedTerm,
+          srsearch: term,
+          cancelToken: source.token,
         },
       });
-
+      console.log("promise returned", data.query.search);
       setResults(data.query.search);
     };
-    if (debouncedTerm) {
+    if (term) {
       search();
     }
-  }, [debouncedTerm]);
+  }, [term]);
 
   ///////////////////////////////////////////////////////////////////////////
 
@@ -57,13 +51,23 @@ const Search = () => {
   });
 
   return (
-    <div>
+    <div
+      ref={ref}
+      style={{
+        gridColumn: "1/span 3",
+        gridRow: "3/span 1",
+        marginBottom: "10px",
+      }}
+    >
       <div className="ui form">
         <div className="field">
           <label>Enter Search Term</label>
           <input
             value={term}
-            onChange={(e) => setTerm(e.target.value)}
+            onChange={(e) => {
+              setTerm(e.target.value);
+              console.log("term: ", term);
+            }}
             className="input"
           />
         </div>

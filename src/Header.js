@@ -7,7 +7,7 @@ const Header = () => {
       className="ui secondary pointing menu"
       style={{ backgroundColor: "rgba(0,0,0,.87)" }}
     >
-      <h1 className="ui header" style={{ color: "white" }}>
+      <h1 className="ui header" style={{ color: "white", margin: "0" }}>
         Scotty's Home
       </h1>
     </div>

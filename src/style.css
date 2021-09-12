@@ -1,5 +1,31 @@
 @import "~leaflet/dist/leaflet.css";
 
+body {
+  font-family: "Inter", sans-serif;
+}
+
+h1 {
+  font-size: 52px;
+  letter-spacing: -1.5;
+}
+
+.aboutUs {
+  line-height: 1.6;
+  color: white;
+  margin-left: 20px;
+  font-size: 18px;
+  width: 600px;
+  grid-column: 1 / span 2;
+
+  /* style={{
+      color: "white",
+      marginLeft: "20px",
+      fontSize: "20px",
+      gridColumn: "1/span 1",
+    }}
+   */
+}
+
 #mapid {
   height: 100px;
   width: auto;
