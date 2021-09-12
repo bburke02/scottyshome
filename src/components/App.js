@@ -11,6 +11,7 @@ import daisyProfile from "../img/daisyProfile.jpg";
 import sammyProfile from "../img/sammyProfile.JPG";
 import rosieProfile from "../img/rosieProfile.jpg";
 import daisyWindow from "../img/daisyWindow.png";
+import duchessProfile from "../img/duchessProfile.jpg";
 
 import "../../src/style.css";
 
@@ -85,6 +86,19 @@ const dogs = [
     coordinates: {
       lat: 41.7004,
       lng: -73.921,
+    },
+  },
+  {
+    key: 5,
+    name: "Duchess",
+    breed: "West Highland Terrier",
+    aboutMe:
+      "MMy name is Duchess. Take a look at the map to see where I am originally from!",
+    profilePic: duchessProfile,
+    age: 6,
+    coordinates: {
+      lat: 41.019,
+      lng: -73.7982,
     },
   },
 ];
