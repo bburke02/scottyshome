@@ -1,21 +1,23 @@
 @import "~leaflet/dist/leaflet.css";
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 h1 {
+  font-family: "Montserrat", sans-serif;
   font-size: 52px;
   letter-spacing: -1.5;
 }
 
 .aboutUs {
+  font-family: "Montserrat", sans-serif;
   line-height: 1.6;
-  color: white;
+  color: #1366b2;
   margin-left: 20px;
+  margin-top: 30px;
   font-size: 18px;
   width: 600px;
-  grid-column: 1 / span 2;
 
   /* style={{
       color: "white",
@@ -27,6 +29,7 @@ h1 {
 }
 
 #mapid {
+  font-family: "Montserrat", sans-serif;
   height: 100px;
   width: auto;
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../src/style.css";
+import "../../../src/style.css";
 
 import * as L from "leaflet";
 
@@ -30,7 +30,7 @@ const Location = ({ selectedDog }) => {
       mymap.remove();
       setLat(selectedDog.coordinates.lat);
       setLng(selectedDog.coordinates.lng);
-      console.log([lat, lng]);
+
       mymap = L.map("mapid").setView([lat, lng], 13);
 
       L.tileLayer(
@@ -51,20 +51,26 @@ const Location = ({ selectedDog }) => {
 
   return (
     <div
-      id="mapid"
       style={{
-        height: "70vh",
-        width: "800px",
-
-        border: "3px solid #73AD21",
-        marginTop: "10px",
-        gridColumn: "2/span 2",
-        gridRow: "2/span 1",
-        justifySelf: "left",
-        alignSelf: "end",
-        marginBottom: "20px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        margin: "10px",
+        color: "white",
       }}
-    ></div>
+    >
+      <h3>Please look at the map below to see where I am from!</h3>
+      <div
+        id="mapid"
+        style={{
+          height: "70vh",
+          width: "600px",
+
+          borderStyle: "solid",
+          borderRadius: "20px",
+        }}
+      ></div>
+    </div>
   );
 };
 

@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
-const Search = ({ selectedDog }) => {
-  const [term, setTerm] = useState("");
+const Search = (props) => {
   const [results, setResults] = useState([]);
-  const ref = useRef();
-  console.log(ref.current);
-  useEffect(() => {
-    const source = axios.CancelToken.source();
 
-    const search = async () => {
-      console.log("useEffect", term);
+  useEffect(() => {
+    console.log("useEffect called again");
+    const term = props.selectedDog.breed;
+    console.log(props.selectedDog);
+    console.log(props.selectedDog.breed);
+    console.log("term", term);
+    const searchAsync = async () => {
+      console.log(
+        `asysnc search run again with search term ${props.selectedDog.breed}`
+      );
       let { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
         params: {
           action: "query",
@@ -18,20 +21,19 @@ const Search = ({ selectedDog }) => {
           origin: "*",
           format: "json",
           srsearch: term,
-          cancelToken: source.token,
         },
       });
-      console.log("promise returned", data.query.search);
       setResults(data.query.search);
+      console.log(data.query.searchults);
     };
-    if (term) {
-      search();
-    }
-  }, [term]);
+
+    searchAsync();
+  }, [props.selectedDog]);
 
   ///////////////////////////////////////////////////////////////////////////
 
   const renderedResults = results.map((result) => {
+    console.log(result);
     return (
       <div key={result.pageid} className="item">
         <div className="right floated content">
@@ -43,7 +45,9 @@ const Search = ({ selectedDog }) => {
           </a>
         </div>
         <div className="content">
-          <div className="header">{result.title}</div>
+          <div style={{ color: "white" }} className="header">
+            {result.title}
+          </div>
           <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
         </div>
       </div>
@@ -52,7 +56,6 @@ const Search = ({ selectedDog }) => {
 
   return (
     <div
-      ref={ref}
       style={{
         gridColumn: "1/span 3",
         gridRow: "3/span 1",
@@ -61,15 +64,7 @@ const Search = ({ selectedDog }) => {
     >
       <div className="ui form">
         <div className="field">
-          <label>Enter Search Term</label>
-          <input
-            value={term}
-            onChange={(e) => {
-              setTerm(e.target.value);
-              console.log("term: ", term);
-            }}
-            className="input"
-          />
+          <button>{`See below to learn more about ${props.selectedDog.breed}s!`}</button>
         </div>
       </div>
       <div className="ui celled list">{renderedResults}</div>

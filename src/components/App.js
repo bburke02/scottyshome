@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import Header from "../Header";
+import Header from "./Header";
 import Search from "./Search";
 import AboutUs from "./AboutUs";
 import { Dropdown } from "./Dropdown";
 import DropdownRender from "./DropdownRender";
-import Location from "./Location";
+import Location from "./Location/Location";
 import scottyProfile from "../img/scottyProfile.jpg";
 import daisyProfile from "../img/daisyProfile.jpg";
 import sammyProfile from "../img/sammyProfile.JPG";
@@ -51,7 +51,7 @@ const dogs = [
   {
     key: 2,
     name: "Daisy",
-    breed: "American Foxhound/Dauschund",
+    breed: "American Foxhound",
     aboutMe:
       "My name is Daisy and I am two years old. I was rescued by my human parents from Alabama, along with my sister Rosie. I like to eat anything and everything. I  beg for food when I am not supposed to. I am faster than my brother Scotty, but I always let him catch me when we are playing tag in the backyard. Take a look at the map to see where I am originally from!",
     profilePic: daisyProfile,
@@ -65,7 +65,7 @@ const dogs = [
   {
     key: 3,
     name: "Rosie",
-    breed: "American Foxhound/Dauschund",
+    breed: "American Foxhound",
     aboutMe:
       "My name is Rosie and I am two years old. I was rescued by my human mommy and daddy from Alabama, along with my sister, Daisy. I love to destroy toys even though my mommy doesn't like that. I like to play with sister Daisy and my best friend Scotty. We usually get together once a week for a long walk on the street and some chasing and wrestling outside! Take a look at the map to see where I am originally from!",
     profilePic: rosieProfile,
@@ -120,30 +120,24 @@ const App = () => {
 
       <div
         style={{
-          backgroundColor: "#3a3a3a",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gridTemplateRows: "1fr 1fr",
-          alignItems: "center",
-          justifyItems: "center",
+          backgroundColor: "white",
+          display: "flex",
+          flexDirection: "row",
+
+          alignItems: "flexStart",
+          justifyContent: "center",
         }}
       >
-        <AboutUs aboutUs={aboutUs} />
-        <div style={{}}>
-          <img
-            src={daisyWindow}
-            style={{ height: "500px", gridColumn: "2 / span 2", width: "auto" }}
-          />
-        </div>
         <div
           style={{
-            backgroundColor: "#3a3a3a",
-            gridColumn: "1/span 1",
-            gridRow: "2/span 1",
-            justifySelf: "right",
-            marginBottom: "20px",
+            backgroundColor: "white",
+            color: "#1366B2",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
+          <AboutUs aboutUs={aboutUs} />
           <Dropdown
             dogs={dogs}
             selected={selected}
@@ -152,8 +146,31 @@ const App = () => {
 
           <DropdownRender selectedDog={selected} dogs={dogs} />
         </div>
-        <Location selectedDog={selected} id="mapid" />
-        <Search selectedDog={selected} />
+        {/* <div style={{}}>
+          <img
+            src={daisyWindow}
+            style={{
+              height: "500px",
+              gridColumn: "2 / span 2",
+              width: "auto",
+              borderRadius: "15px",
+            }}
+          />
+        </div> */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            background:
+              "linear-gradient(180deg, rgba(35,132,212,1) 0%, rgba(171,215,254,1) 100%)",
+            color: "white",
+          }}
+        >
+          <Location selectedDog={selected} id="mapid" />
+          <Search selectedDog={selected} />
+        </div>
       </div>
     </div>
   );

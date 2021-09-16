@@ -39,14 +39,18 @@ export const Dropdown = ({ dogs, selected, onSelectedChange }) => {
   });
 
   return (
-    <div ref={ref} className="ui form" style={{ textAlign: "center" }}>
+    <div
+      ref={ref}
+      className="ui form"
+      style={{ fontFamily: '"Montserrat", sansSerif', textAlign: "center" }}
+    >
       <div className="field">
-        <label className="label" style={{ color: "white" }}>
+        <label className="label" style={{ color: "#1366B2" }}>
           Select a Dog
         </label>
         <div
           style={{
-            backgroundColor: "#cfcdcc",
+            backgroundColor: "##d4d4d5",
             width: "10vw",
             textAlign: "center",
           }}
@@ -54,7 +58,9 @@ export const Dropdown = ({ dogs, selected, onSelectedChange }) => {
           className={`ui selection dropdown ${open ? "visible active" : ""}`}
         >
           <i className="dropdown icon"></i>
-          <div className="text">{selected.name}</div>
+          <div style={{ color: "rgb(14, 65, 119)" }} className="text">
+            {selected.name}
+          </div>
           <div className={`menu ${open ? "visible transition" : ""}`}>
             {renderedDogList}
           </div>
