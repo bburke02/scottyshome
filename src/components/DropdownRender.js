@@ -28,24 +28,35 @@ const DropdownRender = ({ selectedDog }) => {
             className="date"
             style={{
               color: "#1366B2",
-              color: "#1366B2",
+
               fontFamily: '"Montserrat", sansSerif',
+              fontWeight: "700",
             }}
           >
             Age: {selectedDog.age}
           </span>
         </div>
         <div
+          className="extra content"
+          style={{
+            color: "#1366B2",
+            fontFamily: '"Montserrat", sansSerif',
+            fontWeight: "700",
+          }}
+        >
+          Breed: {selectedDog.breed}
+        </div>
+        <div
           className="description"
-          style={{ color: "#1366B2", fontFamily: '"Montserrat", sansSerif' }}
+          style={{
+            color: "#1366B2",
+            fontFamily: '"Montserrat", sansSerif',
+            borderTop: "2px",
+          }}
         >
           {selectedDog.aboutMe}
         </div>
       </div>
-      <div
-        className="extra content"
-        style={{ fontFamily: '"Montserrat", sansSerif' }}
-      ></div>
     </div>
   );
 };

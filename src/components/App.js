@@ -84,8 +84,8 @@ const dogs = [
     profilePic: sammyProfile,
     age: 7,
     coordinates: {
-      lat: 41.7004,
-      lng: -73.921,
+      lat: 36.2371,
+      lng: -79.9795,
     },
   },
   {
@@ -93,7 +93,7 @@ const dogs = [
     name: "Duchess",
     breed: "West Highland Terrier",
     aboutMe:
-      "MMy name is Duchess. Take a look at the map to see where I am originally from!",
+      "My name is Duchess. I am extremely dominant and love to play chase. I can't have other dominant female dogs over the house or else we fight 😥. I like to run away so I always have to be on a leash. Take a look at the map to see where I am originally from!",
     profilePic: duchessProfile,
     age: 6,
     coordinates: {
